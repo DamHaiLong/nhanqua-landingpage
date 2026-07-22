@@ -17,7 +17,7 @@ export const course = {
   location: "Zoom Online — học tại nhà, ở bất kỳ đâu",
   guideText: "Thầy Ngô Đức Vượng",
 
-  heroImage: "/images/hero.jpg",
+  heroImage: "/images/hero-lop-hoc.jpg",
 
   // --- Học phí (VND) ---
   price: 999_000,
@@ -49,7 +49,7 @@ export const course = {
 
   // --- Về khóa học ---
   about: {
-    image: "/images/about.jpg",
+    image: "/images/thay-giang-bai.jpg",
     heading: "Hiểu cuộc sống bằng ánh sáng của Nhân quả",
     paragraphs: [
       "Nhân quả là một đại định luật của vũ trụ, chi phối mọi suy nghĩ, lời nói, hành động và kết quả trong cuộc đời mỗi con người. Nghiệp báo và luân hồi tái sinh là sự tiếp nối của định luật ấy — giúp lý giải nhiều điều tưởng chừng không có lời giải: vì sao có người hạnh phúc, có người khổ đau; vì sao cùng một hoàn cảnh nhưng mỗi người lại có một số phận khác nhau.",
@@ -169,7 +169,7 @@ export const course = {
   ],
 
   // --- Trọn khóa bao gồm ---
-  includedImage: "/images/hall.jpg",
+  includedImage: "/images/lop-thuc-hanh.jpg",
   included: [
     "06 buổi học trực tiếp qua Zoom cùng Thầy Ngô Đức Vượng",
     "Bộ tài liệu bản cứng gửi tận nhà cho mọi học viên",
@@ -179,13 +179,14 @@ export const course = {
   ],
 
   // --- Thư viện hình ảnh ---
+  // Ảnh THẬT từ các chương trình của Thầy (folder anhT7)
   gallery: [
-    "/images/meditation.jpg",
-    "/images/lotus.jpg",
-    "/images/healing.jpg",
-    "/images/bamboo.jpg",
-    "/images/hall.jpg",
-    "/images/forest.jpg",
+    "/images/gallery-cung-thay.jpg",
+    "/images/gallery-tro-chuyen.jpg",
+    "/images/gallery-tai-lieu.jpg",
+    "/images/gallery-chia-se.jpg",
+    "/images/gallery-thay-hoc-vien.jpg",
+    "/images/gallery-toi-am-cung.jpg",
   ],
 
   ctaImage: "/images/forest.jpg",

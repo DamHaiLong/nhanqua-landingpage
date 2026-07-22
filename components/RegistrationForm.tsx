@@ -80,10 +80,14 @@ export default function RegistrationForm({ price }: { price: number }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="mb-1 block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="reg-fullname"
+          className="mb-1 block text-sm font-medium text-slate-700"
+        >
           Họ và tên <span className="text-red-500">*</span>
         </label>
         <input
+          id="reg-fullname"
           type="text"
           value={form.fullName}
           onChange={(e) => update("fullName", e.target.value)}
@@ -93,10 +97,14 @@ export default function RegistrationForm({ price }: { price: number }) {
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="reg-phone"
+          className="mb-1 block text-sm font-medium text-slate-700"
+        >
           Số điện thoại (Zalo) <span className="text-red-500">*</span>
         </label>
         <input
+          id="reg-phone"
           type="tel"
           inputMode="tel"
           value={form.phone}
@@ -107,24 +115,14 @@ export default function RegistrationForm({ price }: { price: number }) {
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-slate-700">
-          Email (để nhận link Zalo và xác nhận thanh toán)
-        </label>
-        <input
-          type="email"
-          inputMode="email"
-          value={form.email}
-          onChange={(e) => update("email", e.target.value)}
-          placeholder="email@cua-ban.com"
-          className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
-        />
-      </div>
-
-      <div>
-        <label className="mb-1 block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="reg-address"
+          className="mb-1 block text-sm font-medium text-slate-700"
+        >
           Địa chỉ nhận bộ tài liệu bản cứng <span className="text-red-500">*</span>
         </label>
         <textarea
+          id="reg-address"
           value={form.shippingAddress}
           onChange={(e) => update("shippingAddress", e.target.value)}
           placeholder="Số nhà, đường, phường/xã, tỉnh/thành phố"
@@ -137,11 +135,36 @@ export default function RegistrationForm({ price }: { price: number }) {
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="reg-email"
+          className="mb-1 block text-sm font-medium text-slate-700"
+        >
+          Email{" "}
+          <span className="font-normal text-slate-400">
+            (không bắt buộc — để nhận link Zalo & xác nhận thanh toán)
+          </span>
+        </label>
+        <input
+          id="reg-email"
+          type="email"
+          inputMode="email"
+          value={form.email}
+          onChange={(e) => update("email", e.target.value)}
+          placeholder="email@cua-ban.com"
+          className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
+        />
+      </div>
+
+      <div>
+        <label
+          htmlFor="reg-referrer"
+          className="mb-1 block text-sm font-medium text-slate-700"
+        >
           SĐT người giới thiệu{" "}
           <span className="font-normal text-slate-400">(không bắt buộc)</span>
         </label>
         <input
+          id="reg-referrer"
           type="tel"
           inputMode="tel"
           value={form.referrerPhone}

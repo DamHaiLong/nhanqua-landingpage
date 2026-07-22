@@ -232,7 +232,7 @@ export default function HomePage() {
       <section className="relative flex min-h-[640px] items-center md:min-h-[780px]">
         <img
           src={course.heroImage}
-          alt="Không gian thiên nhiên an yên — khóa học Nhân Quả, Nghiệp Báo, Luân Hồi Tái Sinh"
+          alt="Học viên lắng nghe trong một buổi học cùng Thầy Ngô Đức Vượng"
           className="absolute inset-0 h-full w-full object-cover"
         />
         {/* Lớp phủ đậm bên trái (sau chữ), nhạt dần sang phải để giữ ảnh sáng */}
