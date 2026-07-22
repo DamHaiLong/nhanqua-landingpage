@@ -20,7 +20,7 @@ export const course = {
   heroImage: "/images/hero-lop-hoc.jpg",
 
   // --- Học phí (VND) ---
-  price: 2_000,
+  price: 999_000,
   originalPrice: null as number | null, // đặt số > price để hiện giá gạch + %
   earlyBirdNote:
     "🎁 Tặng bộ tài liệu bản cứng gửi tận nhà cho tất cả học viên đăng ký",
