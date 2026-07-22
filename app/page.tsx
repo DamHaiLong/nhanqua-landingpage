@@ -617,57 +617,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== Cảm nhận ===== */}
-      <section className="relative py-20">
-        <Watermark src="/images/lotus.jpg" />
-        <Blob className="-left-28 top-20 h-72 w-72 bg-brand-100/70" />
-        <div className="container-page relative">
-          <div className="text-center">
-            <Eyebrow>Cảm nhận</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold text-brand-900 md:text-4xl">
-              Học viên chia sẻ
-            </h2>
-            <Divider center />
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {course.testimonials.map((t) => {
-              const initial =
-                t.name.split(",")[0].trim().split(" ").pop()?.[0] ?? "P";
-              return (
-                <figure
-                  key={t.name}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white p-7 shadow-sm ring-1 ring-black/5 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl"
-                >
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute -top-3 right-4 font-display text-[6rem] leading-none text-gold-100"
-                  >
-                    &rdquo;
-                  </span>
-                  <div className="relative flex gap-1 text-gold-400">
-                    {[0, 1, 2, 3, 4].map((n) => (
-                      <StarIcon key={n} />
-                    ))}
-                  </div>
-                  <blockquote className="relative mt-4 flex-1 leading-relaxed text-ink/80">
-                    {t.quote}
-                  </blockquote>
-                  <figcaption className="relative mt-6 flex items-center gap-3 border-t border-black/5 pt-5">
-                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-700 font-display text-lg font-semibold text-cream">
-                      {initial}
-                    </span>
-                    <span>
-                      <p className="font-semibold text-brand-900">{t.name}</p>
-                      <p className="text-sm text-ink/50">{t.role}</p>
-                    </span>
-                  </figcaption>
-                </figure>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* ===== Đánh giá thật trên Facebook ===== */}
       {course.reviewScreenshots.length > 0 && (
         <section className="bg-brand-50/40 pb-16 pt-4">
