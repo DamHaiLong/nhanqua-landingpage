@@ -133,6 +133,15 @@ function PillarIcon({ index, className = "h-6 w-6" }: { index: number; className
       <path d="M9.94 15.5a2 2 0 0 0-1.44-1.44l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94a2 2 0 0 0 1.44-1.44l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.13 1.58a.5.5 0 0 1 0 .96l-6.13 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z" />
       <path d="M20 3v4M22 5h-4" />
     </g>,
+    <g key="sunrise">
+      <path d="M12 2v6" />
+      <path d="m8 6 4-4 4 4" />
+      <path d="m4.93 12.93 1.41 1.41" />
+      <path d="M2 20h2M20 20h2" />
+      <path d="m19.07 12.93-1.41 1.41" />
+      <path d="M17 20a5 5 0 0 0-10 0" />
+      <path d="M22 24H2" />
+    </g>,
   ];
   return (
     <svg
@@ -228,39 +237,40 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* ===== Hero ===== */}
-      <section className="relative flex min-h-[640px] items-center md:min-h-[780px]">
-        <img
-          src={course.heroImage}
-          alt="Học viên lắng nghe trong một buổi học cùng Thầy Ngô Đức Vượng"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        {/* Lớp phủ đậm bên trái (sau chữ), nhạt dần sang phải để giữ ảnh sáng */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/85 via-brand-900/55 to-brand-900/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-black/25" />
-        <div className="container-page relative pb-44 pt-20 lg:pb-56">
-          <div className="max-w-2xl animate-fade-up text-cream">
+      {/* ===== Hero — banner khóa học ONLINE (gradient + chân dung Thầy) ===== */}
+      <section className="relative flex min-h-[640px] items-center overflow-hidden bg-gradient-to-br from-ink via-brand-900 to-brand-800 md:min-h-[720px]">
+        {/* Vầng sáng trang trí */}
+        <div aria-hidden className="absolute -left-40 -top-40 h-[480px] w-[480px] rounded-full bg-gold-400/15 blur-3xl" />
+        <div aria-hidden className="absolute -bottom-48 right-0 h-[520px] w-[520px] rounded-full bg-brand-500/20 blur-3xl" />
+        <div aria-hidden className="absolute right-1/3 top-10 h-64 w-64 rounded-full bg-gold-300/10 blur-2xl" />
+
+        <div className="container-page relative grid items-center gap-12 pb-44 pt-16 md:grid-cols-5 lg:pb-56">
+          <div className="animate-fade-up text-cream md:col-span-3">
             <Eyebrow light>{course.organizer}</Eyebrow>
-            <h1 className="mt-5 font-display text-4xl font-semibold leading-tight drop-shadow-[0_3px_16px_rgba(0,0,0,0.55)] md:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-semibold leading-tight md:text-6xl">
               {course.programName}
             </h1>
-            <p className="mt-5 max-w-xl text-lg font-medium text-cream drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] md:text-xl">
+            <p className="mt-5 max-w-xl text-lg font-medium text-cream/85 md:text-xl">
               {course.tagline}
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3 text-sm font-medium">
-              <span className="rounded-full border border-cream/40 bg-brand-900/45 px-4 py-1.5 backdrop-blur">
-                {course.dateText}
+              <span className="inline-flex items-center gap-2 rounded-full bg-red-500/90 px-4 py-1.5 font-bold text-white">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-white" />
+                LIVE qua Zoom
               </span>
-              <span className="rounded-full border border-cream/40 bg-brand-900/45 px-4 py-1.5 backdrop-blur">
-                {course.durationText}
+              <span className="rounded-full border border-cream/30 bg-white/10 px-4 py-1.5 backdrop-blur">
+                📅 {course.dateText}
               </span>
-              <span className="rounded-full border border-cream/40 bg-brand-900/45 px-4 py-1.5 backdrop-blur">
-                {course.location}
+              <span className="rounded-full border border-cream/30 bg-white/10 px-4 py-1.5 backdrop-blur">
+                🕗 {course.durationText}
+              </span>
+              <span className="rounded-full border border-gold-300/50 bg-gold-400/15 px-4 py-1.5 font-semibold text-gold-200 backdrop-blur">
+                🎁 Tặng bộ tài liệu bản cứng
               </span>
             </div>
 
-            <p className="mt-5 font-medium text-cream drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+            <p className="mt-5 font-medium text-cream/90">
               <span className="font-semibold text-gold-300">Hướng dẫn:</span>{" "}
               {course.guideText}
             </p>
@@ -285,6 +295,22 @@ export default function HomePage() {
                 />
               </div>
             )}
+          </div>
+
+          {/* Chân dung Thầy — cột phải */}
+          <div className="relative mx-auto hidden w-full max-w-xs animate-fade-up md:col-span-2 md:block lg:max-w-sm">
+            <div aria-hidden className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold-400/40 to-brand-500/20 blur-xl" />
+            <img
+              src={course.teacher.image}
+              alt="Thầy Ngô Đức Vượng"
+              className="relative w-full rounded-[2rem] object-cover shadow-2xl ring-2 ring-gold-300/50"
+            />
+            <div className="absolute -bottom-5 left-1/2 w-max -translate-x-1/2 rounded-full bg-white px-5 py-2.5 text-center shadow-xl">
+              <p className="font-display text-base font-bold text-brand-900">
+                {course.teacher.name}
+              </p>
+              <p className="text-xs text-gold-700">Hơn 40 năm nghiên cứu</p>
+            </div>
           </div>
         </div>
       </section>
@@ -348,8 +374,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* 3 trụ cột Thân - Tâm - Trí */}
-        <div className="container-page relative mt-14 grid gap-6 md:grid-cols-3">
+        {/* 4 trụ cột: Nhân Quả - Nghiệp Báo - Luân Hồi - Tái Sinh */}
+        <div className="container-page relative mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {course.about.pillars.map((p, i) => (
             <div
               key={p.title}
@@ -499,6 +525,9 @@ export default function HomePage() {
               Lộ trình 06 buổi cùng Thầy
             </h2>
             <Divider center />
+            <p className="mx-auto mt-4 inline-block rounded-full bg-brand-700 px-5 py-2 text-sm font-semibold text-cream shadow-md">
+              {course.scheduleNote}
+            </p>
           </div>
           <div className="relative mt-14">
             {/* Đường nối timeline (desktop) */}
@@ -558,31 +587,6 @@ export default function HomePage() {
             className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
             loading="lazy"
           />
-        </div>
-      </section>
-
-      {/* ===== Thư viện ảnh ===== */}
-      <section className="bg-white pb-20 pt-16">
-        <div className="container-page">
-          <div className="text-center">
-            <Eyebrow>Khoảnh khắc</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold text-brand-900 md:text-4xl">
-              Khoảnh khắc từ các chương trình của Thầy
-            </h2>
-            <Divider center />
-          </div>
-          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
-            {course.gallery.map((src, i) => (
-              <div key={src + i} className="group overflow-hidden rounded-2xl">
-                <img
-                  src={src}
-                  alt="Khoảnh khắc tại chương trình"
-                  className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -693,40 +697,6 @@ export default function HomePage() {
                     loading="lazy"
                   />
                 </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ===== Video cảm nhận ===== */}
-      {course.videoTestimonials.length > 0 && (
-        <section className="bg-white pb-20 pt-4">
-          <div className="container-page">
-            <div className="text-center">
-              <Eyebrow>Video cảm nhận</Eyebrow>
-              <h2 className="mt-4 font-display text-3xl font-semibold text-brand-900 md:text-4xl">
-                Học viên kể lại hành trình
-              </h2>
-              <Divider center />
-            </div>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {course.videoTestimonials.map((v) => (
-                <div
-                  key={v.youtubeId}
-                  className="overflow-hidden rounded-3xl bg-black shadow-sm ring-1 ring-black/5"
-                >
-                  <div className="aspect-video">
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
-                      title={v.title}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="h-full w-full"
-                    />
-                  </div>
-                </div>
               ))}
             </div>
           </div>

@@ -13,7 +13,7 @@ export const course = {
   tagline:
     "Có những kiến thức giúp chúng ta kiếm sống. Nhưng cũng có những chân lý giúp chúng ta hiểu cuộc sống.",
   dateText: "31/7 – 5/8/2026",
-  durationText: "06 buổi trực tiếp",
+  durationText: "06 buổi · 20:00 hàng ngày",
   location: "Zoom Online — học tại nhà, ở bất kỳ đâu",
   guideText: "Thầy Ngô Đức Vượng",
 
@@ -41,7 +41,7 @@ export const course = {
 
   // --- Thông tin nhanh (dải dưới hero) ---
   quickFacts: [
-    { label: "Thời gian", value: "31/7 – 5/8/2026 · 6 buổi" },
+    { label: "Thời gian", value: "31/7 – 5/8/2026 · 20:00 hàng ngày" },
     { label: "Hình thức", value: "Zoom Online trực tiếp" },
     { label: "Người hướng dẫn", value: "Thầy Ngô Đức Vượng" },
     { label: "Quà tặng", value: "Bộ tài liệu bản cứng gửi tận nhà" },
@@ -67,7 +67,11 @@ export const course = {
       },
       {
         title: "Luân Hồi",
-        desc: "Hiểu đúng Luân hồi để kiến tạo một cuộc đời an lạc, trí tuệ và hạnh phúc.",
+        desc: "Hiểu đúng Luân hồi — sự tiếp nối của dòng sống, lý giải những điều tưởng chừng không có lời giải.",
+      },
+      {
+        title: "Tái Sinh",
+        desc: "Hiểu đúng Tái sinh để kiến tạo một cuộc đời an lạc, trí tuệ và hạnh phúc — từ chính hôm nay.",
       },
     ],
   },
@@ -135,6 +139,7 @@ export const course = {
   // --- Lịch học 6 buổi ---
   // LƯU Ý: chủ đề từng buổi là BẢN NHÁP dựng theo nội dung khóa —
   // vui lòng đối chiếu giáo án thật của Thầy và sửa tại đây.
+  scheduleNote: "🕗 Học trực tiếp qua Zoom lúc 20:00 mỗi tối, từ 31/7 đến 5/8",
   schedule: [
     {
       day: "Buổi 1 · 31/7",
@@ -176,17 +181,6 @@ export const course = {
     "Hỏi – đáp trực tiếp với Thầy trong các buổi học",
     "Nhóm Zalo học viên đồng hành trong suốt khóa",
     "Kiến thức ứng dụng ngay vào sức khỏe, hạnh phúc và các mối quan hệ",
-  ],
-
-  // --- Thư viện hình ảnh ---
-  // Ảnh THẬT từ các chương trình của Thầy (folder anhT7)
-  gallery: [
-    "/images/gallery-cung-thay.jpg",
-    "/images/gallery-tro-chuyen.jpg",
-    "/images/gallery-tai-lieu.jpg",
-    "/images/gallery-chia-se.jpg",
-    "/images/gallery-thay-hoc-vien.jpg",
-    "/images/gallery-toi-am-cung.jpg",
   ],
 
   ctaImage: "/images/forest.jpg",
@@ -250,18 +244,6 @@ export const course = {
     "/images/reviews/fb-6.jpg",
   ],
 
-  // --- Video cảm nhận học viên (YouTube ID — lấy từ link youtube.com/watch?v=<ID> hoặc youtu.be/<ID>) ---
-  videoTestimonials: [
-    {
-      youtubeId: "NhvCjJwM_7s",
-      title: "Cảm nhận của học viên sau các khóa học cùng Thầy",
-    },
-    {
-      youtubeId: "qyE438q2qMI",
-      title: "Cảm nhận của học viên — Chị Thu",
-    },
-  ],
-
   // --- Câu hỏi thường gặp ---
   faqs: [
     {
@@ -270,7 +252,7 @@ export const course = {
     },
     {
       q: "Học qua Zoom như thế nào?",
-      a: "Sau khi đăng ký thành công, bạn được đưa vào nhóm Zalo của lớp. Link Zoom từng buổi sẽ được gửi trong nhóm trước giờ học — bạn chỉ cần điện thoại hoặc máy tính có mạng.",
+      a: "Lớp học trực tiếp lúc 20:00 mỗi tối từ 31/7 đến 5/8. Sau khi đăng ký thành công, bạn được đưa vào nhóm Zalo của lớp — link Zoom từng buổi sẽ được gửi trong nhóm trước giờ học. Bạn chỉ cần điện thoại hoặc máy tính có mạng.",
     },
     {
       q: "Bộ tài liệu bản cứng nhận như thế nào?",
