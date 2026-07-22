@@ -259,8 +259,8 @@ export const course = {
       a: "Ban tổ chức gửi bộ tài liệu về tận nhà theo địa chỉ bạn điền khi đăng ký — áp dụng cho tất cả học viên của khóa.",
     },
     {
-      q: "Lỡ bận một buổi thì sao?",
-      a: "Bạn nên thu xếp tham dự đầy đủ 6 buổi để trọn vẹn nội dung. Trường hợp bất khả kháng, hãy nhắn trong nhóm lớp hoặc gọi hotline để được hỗ trợ.",
+      q: "Lỡ bận, không kịp tham dự một buổi thì sao?",
+      a: "Bạn yên tâm — chỉ cần nhắn báo với host (ban tổ chức) trong nhóm lớp, bạn sẽ được gửi link record (bản ghi) của buổi học đó để xem lại bất cứ lúc nào, không bỏ lỡ nội dung nào.",
     },
     {
       q: "Sau khi thanh toán tôi nhận thông tin thế nào?",
