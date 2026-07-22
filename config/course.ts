@@ -9,7 +9,7 @@ export const course = {
   organizer: "Nền Văn hóa Sức khỏe và Y khoa Giáo dục",
 
   // --- Thông tin chính ---
-  programName: "Nhân Quả – Nghiệp Báo – Luân Hồi Tái Sinh",
+  programName: "Nhân Quả – Nghiệp Báo – Luân Hồi – Tái Sinh",
   tagline:
     "Có những kiến thức giúp chúng ta kiếm sống. Nhưng cũng có những chân lý giúp chúng ta hiểu cuộc sống.",
   dateText: "31/7 – 5/8/2026",
@@ -80,7 +80,7 @@ export const course = {
   introVideo: {
     src: "/videos/gioi-thieu-khoa-hoc.mp4",
     poster: "/videos/poster-gioi-thieu.jpg",
-    title: "Giới thiệu khóa học Nhân Quả – Nghiệp Báo – Luân Hồi Tái Sinh",
+    title: "Giới thiệu khóa học Nhân Quả – Nghiệp Báo – Luân Hồi – Tái Sinh",
   },
 
   // --- Giới thiệu Thầy Ngô Đức Vượng ---
@@ -100,7 +100,7 @@ export const course = {
   // --- Vì sao nên học + lợi ích ---
   detox: {
     intro:
-      "Nhận thấy đây là nền tảng quan trọng nhưng chưa được truyền dạy một cách hệ thống, Nền Văn hóa Sức khỏe và Y khoa Giáo dục trân trọng giới thiệu khóa học “Nhân Quả – Nghiệp Báo – Luân Hồi Tái Sinh” — nơi những quy luật nền tảng của đời sống được chia sẻ một cách khoa học, logic và dễ hiểu.",
+      "Nhận thấy đây là nền tảng quan trọng nhưng chưa được truyền dạy một cách hệ thống, Nền Văn hóa Sức khỏe và Y khoa Giáo dục trân trọng giới thiệu khóa học “Nhân Quả – Nghiệp Báo – Luân Hồi – Tái Sinh” — nơi những quy luật nền tảng của đời sống được chia sẻ một cách khoa học, logic và dễ hiểu.",
     note: "Khóa học mang tính giáo dục nhận thức, chia sẻ dưới góc nhìn khoa học và minh triết phương Đông — không mê tín, không giáo điều.",
     benefits: [
       {
