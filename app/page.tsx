@@ -609,8 +609,8 @@ export default function HomePage() {
             </ul>
           </div>
           <img
-            src="/images/community.jpg"
-            alt="Học viên và Thầy Ngô Đức Vượng tại chương trình chăm sóc sức khỏe chủ động"
+            src="/images/an-yen.jpg"
+            alt="Người thiền định đón bình minh trên núi — hành trình trở về với chính mình"
             className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
             loading="lazy"
           />

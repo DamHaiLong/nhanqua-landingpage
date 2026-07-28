@@ -49,7 +49,7 @@ export const course = {
 
   // --- Về khóa học ---
   about: {
-    image: "/images/thay-giang-bai.jpg",
+    image: "/images/thay-online.jpg", // Thầy chia sẻ trên video — đúng chất khóa online
     heading: "Hiểu cuộc sống bằng ánh sáng của Nhân quả",
     paragraphs: [
       "Nhân quả là một đại định luật của vũ trụ, chi phối mọi suy nghĩ, lời nói, hành động và kết quả trong cuộc đời mỗi con người. Nghiệp báo và luân hồi tái sinh là sự tiếp nối của định luật ấy — giúp lý giải nhiều điều tưởng chừng không có lời giải: vì sao có người hạnh phúc, có người khổ đau; vì sao cùng một hoàn cảnh nhưng mỗi người lại có một số phận khác nhau.",
@@ -104,22 +104,22 @@ export const course = {
     note: "Khóa học mang tính giáo dục nhận thức, chia sẻ dưới góc nhìn khoa học và minh triết phương Đông — không mê tín, không giáo điều.",
     benefits: [
       {
-        image: "/images/lotus.jpg",
+        image: "/images/hoa-sen.jpg",
         title: "Hiểu quy luật vận hành cuộc sống",
         desc: "Nhận ra nhân quả đang chi phối mọi suy nghĩ, lời nói, hành động — nền tảng để sống đúng và sống an.",
       },
       {
-        image: "/images/mindful.jpg",
+        image: "/images/forest.jpg",
         title: "Lý giải điều tưởng chừng vô lý",
         desc: "Vì sao có người hạnh phúc, có người khổ đau; cùng một hoàn cảnh nhưng mỗi người một số phận khác nhau.",
       },
       {
-        image: "/images/healing.jpg",
+        image: "/images/la-bo-de.jpg",
         title: "Chuyển hóa khổ đau",
         desc: "Hiểu nghiệp báo để thôi oán trách số phận, biết cách chuyển hóa chính mình từ gốc rễ.",
       },
       {
-        image: "/images/community.jpg",
+        image: "/images/ket-noi.jpg",
         title: "Nuôi dưỡng các mối quan hệ",
         desc: "Biết gieo nhân lành trong gia đình, công việc — các mối quan hệ trở nên hài hòa, sâu sắc hơn.",
       },
@@ -129,7 +129,7 @@ export const course = {
         desc: "Khi hiểu quy luật, tâm bớt lo sợ, bớt bám víu — sống chủ động, nhẹ nhõm và vững vàng.",
       },
       {
-        image: "/images/forest.jpg",
+        image: "/images/binh-minh.jpg",
         title: "Kiến tạo tương lai",
         desc: "Chủ động gieo nhân hôm nay để gặt quả mai sau — cho chính mình và những người thân yêu.",
       },
@@ -174,7 +174,7 @@ export const course = {
   ],
 
   // --- Trọn khóa bao gồm ---
-  includedImage: "/images/lop-thuc-hanh.jpg",
+  includedImage: "/images/gallery-thay-hoc-vien.jpg",
   included: [
     "06 buổi học trực tiếp qua Zoom cùng Thầy Ngô Đức Vượng",
     "Bộ tài liệu bản cứng gửi tận nhà cho mọi học viên",
