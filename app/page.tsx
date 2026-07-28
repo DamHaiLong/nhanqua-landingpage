@@ -348,7 +348,7 @@ export default function HomePage() {
           <div className="relative">
             <img
               src={course.about.image}
-              alt="Thầy Ngô Đức Vượng chia sẻ trong một buổi học"
+              alt="Chùa Trấn Quốc lúc hoàng hôn — minh triết phương Đông"
               className="w-full rounded-3xl object-contain shadow-xl"
               loading="lazy"
             />
@@ -583,7 +583,7 @@ export default function HomePage() {
           </div>
           <img
             src={course.includedImage}
-            alt="Không gian học tập và chia sẻ cùng Thầy Ngô Đức Vượng"
+            alt="Học viên tham gia lớp học Zoom tại nhà"
             className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
             loading="lazy"
           />

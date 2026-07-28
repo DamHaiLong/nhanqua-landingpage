@@ -49,7 +49,7 @@ export const course = {
 
   // --- Về khóa học ---
   about: {
-    image: "/images/thay-online.jpg", // Thầy chia sẻ trên video — đúng chất khóa online
+    image: "/images/chua-tran-quoc.jpg", // Chùa Trấn Quốc hoàng hôn — minh triết phương Đông
     heading: "Hiểu cuộc sống bằng ánh sáng của Nhân quả",
     paragraphs: [
       "Nhân quả là một đại định luật của vũ trụ, chi phối mọi suy nghĩ, lời nói, hành động và kết quả trong cuộc đời mỗi con người. Nghiệp báo và luân hồi tái sinh là sự tiếp nối của định luật ấy — giúp lý giải nhiều điều tưởng chừng không có lời giải: vì sao có người hạnh phúc, có người khổ đau; vì sao cùng một hoàn cảnh nhưng mỗi người lại có một số phận khác nhau.",
@@ -174,7 +174,7 @@ export const course = {
   ],
 
   // --- Trọn khóa bao gồm ---
-  includedImage: "/images/gallery-thay-hoc-vien.jpg",
+  includedImage: "/images/hoc-online.jpg", // học viên học Zoom tại nhà
   included: [
     "06 buổi học trực tiếp qua Zoom cùng Thầy Ngô Đức Vượng",
     "Bộ tài liệu bản cứng gửi tận nhà cho mọi học viên",
