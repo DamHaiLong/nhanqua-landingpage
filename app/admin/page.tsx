@@ -208,6 +208,8 @@ export default function AdminPage() {
           </p>
         )}
 
+        <SettingsCard password={password} />
+
         {stats && (
           <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
             <StatCard icon={<DocIcon />} label="Tổng đơn" value={String(stats.total)} tone="brand" />
@@ -325,5 +327,201 @@ function StatCard({
         {value}
       </p>
     </div>
+  );
+}
+
+// --- Chuyển hạn đếm ngược giữa ISO (lưu DB, UTC) và input giờ VN (+07:00) ---
+function isoToVNInput(iso: string | null | undefined): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "";
+  const vn = new Date(d.getTime() + 7 * 3600 * 1000);
+  return vn.toISOString().slice(0, 16); // "YYYY-MM-DDTHH:mm" theo giờ VN
+}
+function vnInputToISO(val: string): string | null {
+  if (!val) return null;
+  return (val.length === 16 ? val + ":00" : val) + "+07:00";
+}
+
+function SettingsCard({ password }: { password: string }) {
+  const [price, setPrice] = useState("");
+  const [dateText, setDateText] = useState("");
+  const [cdEnabled, setCdEnabled] = useState(false);
+  const [cdDeadline, setCdDeadline] = useState(""); // input giờ VN
+  const [cdHeading, setCdHeading] = useState("");
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const res = await fetch("/api/admin/settings", {
+          headers: { "x-admin-password": password },
+          cache: "no-store",
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Không tải được cài đặt.");
+        if (!alive) return;
+        const s = data.settings;
+        setPrice(String(s.price ?? ""));
+        setDateText(s.dateText ?? "");
+        setCdEnabled(Boolean(s.countdownEnabled));
+        setCdDeadline(isoToVNInput(s.countdownDeadline));
+        setCdHeading(s.countdownHeading ?? "");
+      } catch (e) {
+        if (alive) setErr(e instanceof Error ? e.message : "Không tải được cài đặt.");
+      } finally {
+        if (alive) setLoading(false);
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [password]);
+
+  async function save() {
+    setSaving(true);
+    setErr(null);
+    setMsg(null);
+    try {
+      const res = await fetch("/api/admin/settings", {
+        method: "POST",
+        headers: {
+          "x-admin-password": password,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          price: Number(price),
+          dateText,
+          countdownEnabled: cdEnabled,
+          countdownDeadline: cdEnabled ? vnInputToISO(cdDeadline) : null,
+          countdownHeading: cdHeading,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Lưu thất bại.");
+      setMsg("Đã lưu ✓ — trang chủ cập nhật ở lần tải kế tiếp.");
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : "Lưu thất bại.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  const priceNum = Number(price);
+
+  return (
+    <section className="mt-6 overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between px-5 py-4 text-left"
+      >
+        <span className="font-display text-lg font-semibold text-brand-900">
+          ⚙️ Cài đặt học phí &amp; thời gian
+        </span>
+        <span className="text-sm text-ink/50">{open ? "Thu gọn ▲" : "Mở ra ▼"}</span>
+      </button>
+
+      {open && (
+        <div className="border-t border-black/5 px-5 py-5">
+          {loading ? (
+            <p className="text-sm text-ink/50">Đang tải…</p>
+          ) : (
+            <div className="grid gap-5 md:grid-cols-2">
+              <div>
+                <label className="mb-1 block text-sm font-medium text-ink/80">
+                  Học phí (đ)
+                </label>
+                <input
+                  type="number"
+                  min={0}
+                  step={1000}
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  className="w-full rounded-xl border border-gold-200 bg-white px-4 py-2.5 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200"
+                />
+                {Number.isFinite(priceNum) && priceNum > 0 && (
+                  <p className="mt-1 text-xs text-ink/50">= {formatVND(priceNum)}</p>
+                )}
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-ink/80">
+                  Dòng ngày khai giảng (hiển thị ở hero)
+                </label>
+                <input
+                  type="text"
+                  value={dateText}
+                  onChange={(e) => setDateText(e.target.value)}
+                  placeholder="VD: 31/7 – 5/8/2026"
+                  className="w-full rounded-xl border border-gold-200 bg-white px-4 py-2.5 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-ink/80">
+                  Đồng hồ đếm ngược
+                </label>
+                <label className="flex cursor-pointer items-center gap-2 rounded-xl border border-gold-200 bg-white px-4 py-2.5">
+                  <input
+                    type="checkbox"
+                    checked={cdEnabled}
+                    onChange={(e) => setCdEnabled(e.target.checked)}
+                    className="h-4 w-4 accent-gold-600"
+                  />
+                  <span className="text-sm text-ink/80">
+                    {cdEnabled ? "Đang BẬT — hiển thị trên trang" : "Đang TẮT"}
+                  </span>
+                </label>
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-ink/80">
+                  Hạn chót đếm ngược (giờ VN)
+                </label>
+                <input
+                  type="datetime-local"
+                  value={cdDeadline}
+                  onChange={(e) => setCdDeadline(e.target.value)}
+                  disabled={!cdEnabled}
+                  className="w-full rounded-xl border border-gold-200 bg-white px-4 py-2.5 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200 disabled:bg-gold-50/50 disabled:text-ink/40"
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="mb-1 block text-sm font-medium text-ink/80">
+                  Tiêu đề đếm ngược
+                </label>
+                <input
+                  type="text"
+                  value={cdHeading}
+                  onChange={(e) => setCdHeading(e.target.value)}
+                  placeholder="VD: ⏳ Hạn đăng ký còn:"
+                  className="w-full rounded-xl border border-gold-200 bg-white px-4 py-2.5 outline-none transition focus:border-gold-500 focus:ring-2 focus:ring-gold-200"
+                />
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 md:col-span-2">
+                <button
+                  onClick={save}
+                  disabled={saving}
+                  className="rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 px-6 py-2.5 font-bold text-brand-900 shadow-lg shadow-gold-500/30 transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {saving ? "Đang lưu…" : "Lưu cài đặt"}
+                </button>
+                {msg && (
+                  <span className="text-sm font-medium text-brand-700">{msg}</span>
+                )}
+                {err && <span className="text-sm text-red-600">{err}</span>}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </section>
   );
 }

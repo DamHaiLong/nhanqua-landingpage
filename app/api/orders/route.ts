@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createOrder, normalizePhone } from "@/lib/orders";
-import { course } from "@/config/course";
+import { getResolvedCourse } from "@/lib/settings";
 
 export const dynamic = "force-dynamic";
 
@@ -44,7 +44,9 @@ export async function POST(req: Request) {
       );
     }
 
-    // Giá lấy từ config phía server — không tin giá do client gửi lên
+    // Giá lấy từ cài đặt phía server (admin đặt, fallback config) — không tin
+    // giá do client gửi lên.
+    const course = await getResolvedCourse();
     const order = await createOrder({
       fullName,
       phone,

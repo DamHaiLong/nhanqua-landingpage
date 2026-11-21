@@ -1,4 +1,5 @@
-import { course, formatVND } from "@/config/course";
+import { formatVND } from "@/config/course";
+import { getResolvedCourse } from "@/lib/settings";
 import RegistrationForm from "@/components/RegistrationForm";
 import CountdownTimer from "@/components/CountdownTimer";
 import Logo from "@/components/Logo";
@@ -206,7 +207,12 @@ function Watermark({ src }: { src: string }) {
   );
 }
 
-export default function HomePage() {
+// Đọc học phí + đồng hồ + ngày khai giảng MỚI NHẤT từ cài đặt admin.
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  // course = config gốc đã merge cài đặt admin (học phí, đồng hồ, ngày).
+  const course = await getResolvedCourse();
   const hasDiscount =
     !!course.originalPrice && course.originalPrice > course.price;
   const discount = hasDiscount
